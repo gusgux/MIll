@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.999646617909571 -0.02150886985574363 -0.015620749645419225 1.2565861218080667
-  position 0.04766864860332881 2.704083144070014 0.8067656910461994
+  orientation -0.26749720051341264 0.9352207753429581 0.23196411163023303 1.4953143276580498
+  position 2.037959017686922 1.7710376419819083 0.5487005221131194
 }
 TexturedBackground {
 }
@@ -391,6 +391,7 @@ Solid {
             }
             Transform {
               translation 0 -0.255 0
+              rotation 0 1 0 0.785
               children [
                 Group {
                   children [
@@ -401,9 +402,11 @@ Solid {
                       }
                     }
                     Transform {
+                      rotation 0 1 0 1.57
                       children [
                         Shape {
                           appearance USE C_ELICE_FRAME
+                          geometry USE G_ELICE_FRAME
                         }
                       ]
                     }
