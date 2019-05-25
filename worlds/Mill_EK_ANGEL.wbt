@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.90788552449632 0.4129513871995802 0.0722151384405267 0.38057618502606866
-  position 0.5503828589073648 1.6300874875273526 2.2707989249445166
+  orientation -0.999646617909571 -0.02150886985574363 -0.015620749645419225 1.2565861218080667
+  position 0.04766864860332881 2.704083144070014 0.8067656910461994
 }
 TexturedBackground {
 }
@@ -11,7 +11,7 @@ TexturedBackgroundLight {
 }
 Floor {
 }
-Solid {
+DEF BOX_COVER Solid {
   translation 0 0.02500000000000522 0
   children [
     Group {
@@ -36,7 +36,7 @@ Solid {
     }
   ]
 }
-Solid {
+DEF BOX_EDGE1 Solid {
   translation 0 0.1 0.495
   rotation 0 0 1 0
   children [
@@ -118,7 +118,7 @@ Solid {
   ]
   name "solid(1)"
 }
-Solid {
+DEF BOX_EDGE2 Solid {
   translation 0 0.1 -0.495
   rotation 0 0 1 0
   children [
@@ -200,7 +200,7 @@ Solid {
   ]
   name "solid(2)"
 }
-Solid {
+DEF BOX_EDGE3 Solid {
   translation 0.495 0.1 0
   rotation 0 1 0 1.57
   children [
@@ -282,7 +282,7 @@ Solid {
   ]
   name "solid(3)"
 }
-Solid {
+DEF BOX_EDGE4 Solid {
   translation -0.495 0.1 0
   rotation 0 1 0 1.57
   children [
@@ -365,6 +365,56 @@ Solid {
   name "solid(4)"
 }
 Solid {
-  translation 0 1 0
+  translation 0 1.2 0
+  children [
+    Group {
+      children [
+        Shape {
+          appearance DEF C_ELICE_FRAME PBRAppearance {
+            baseColor 0.3058823529411765 0.6039215686274509 0.023529411764705882
+          }
+          geometry Cylinder {
+            height 0.4
+            radius 0.05
+          }
+        }
+        Transform {
+          translation 0.1 0.25 0
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance USE C_ELICE_FRAME
+              geometry Cylinder {
+                height 0.5
+                radius 0.05
+              }
+            }
+            Transform {
+              translation 0 -0.255 0
+              children [
+                Group {
+                  children [
+                    Shape {
+                      appearance USE C_ELICE_FRAME
+                      geometry DEF G_ELICE_FRAME Box {
+                        size 0.5 0.01 0.1
+                      }
+                    }
+                    Transform {
+                      children [
+                        Shape {
+                          appearance USE C_ELICE_FRAME
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
   name "solid(5)"
 }
