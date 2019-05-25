@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.26749720051341264 0.9352207753429581 0.23196411163023303 1.4953143276580498
-  position 2.037959017686922 1.7710376419819083 0.5487005221131194
+  orientation 0.4299120715354241 -0.8768583508720128 -0.21516282962940975 5.2458921785980746
+  position 1.9636991641093273 2.616640800957245 1.570800815173307
 }
 TexturedBackground {
 }
@@ -364,7 +364,7 @@ DEF BOX_EDGE4 Solid {
   ]
   name "solid(4)"
 }
-Solid {
+DEF ELICE_FRAME Solid {
   translation 0 1.2 0
   children [
     Group {
@@ -372,52 +372,55 @@ Solid {
         Shape {
           appearance DEF C_ELICE_FRAME PBRAppearance {
             baseColor 0.3058823529411765 0.6039215686274509 0.023529411764705882
+            metalness 0
           }
-          geometry Cylinder {
+          geometry DEF G_ELICE_CYL Cylinder {
             height 0.4
             radius 0.05
           }
         }
-        Transform {
-          translation 0.1 0.25 0
-          rotation 0 0 1 1.57
-          children [
-            Shape {
-              appearance USE C_ELICE_FRAME
-              geometry Cylinder {
-                height 0.5
-                radius 0.05
+        HingeJoint {
+          endPoint Solid {
+            translation 0.08 0.25 0
+            rotation 0 0 1 1.57
+            children [
+              Shape {
+                appearance USE C_ELICE_FRAME
+                geometry USE G_ELICE_CYL
               }
-            }
-            Transform {
-              translation 0 -0.255 0
-              rotation 0 1 0 0.785
-              children [
-                Group {
+              HingeJoint {
+                endPoint Solid {
+                  translation 0 -0.205 0
+                  rotation 0 1 0 0.78
                   children [
                     Shape {
                       appearance USE C_ELICE_FRAME
-                      geometry DEF G_ELICE_FRAME Box {
+                      geometry Box {
                         size 0.5 0.01 0.1
                       }
                     }
-                    Transform {
-                      rotation 0 1 0 1.57
-                      children [
-                        Shape {
-                          appearance USE C_ELICE_FRAME
-                          geometry USE G_ELICE_FRAME
-                        }
-                      ]
+                    HingeJoint {
+                      endPoint Solid {
+                        rotation 0 1 0 1.57
+                        children [
+                          Shape {
+                            appearance USE C_ELICE_FRAME
+                            geometry Box {
+                              size 0.5 0.01 0.1
+                            }
+                          }
+                        ]
+                      }
                     }
                   ]
                 }
-              ]
-            }
-          ]
+              }
+            ]
+          }
         }
       ]
     }
   ]
   name "solid(5)"
+  boundingObject USE G_ELICE_CYL
 }
