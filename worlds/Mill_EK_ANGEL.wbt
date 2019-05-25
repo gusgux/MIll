@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.632031608308635 0.7747971597163429 0.015013573668109443 0.06129869621194444
-  position -0.2187642144437878 0.34697441816541225 3.106631001895894
+  orientation -0.90788552449632 0.4129513871995802 0.0722151384405267 0.38057618502606866
+  position 0.5503828589073648 1.6300874875273526 2.2707989249445166
 }
 TexturedBackground {
 }
@@ -12,81 +12,359 @@ TexturedBackgroundLight {
 Floor {
 }
 Solid {
-  translation 0 0.05 0
+  translation 0 0.02500000000000522 0
   children [
-    Shape {
-      appearance DEF BOX_COLOR PBRAppearance {
-        baseColor 0.8 0 0
-      }
-      geometry Box {
-        size 1 0.1 0.01
-      }
-    }
-    Transform {
-      translation 0 0.9 0
+    Group {
       children [
         Shape {
-          appearance USE BOX_COLOR
-          geometry Box {
-            size 1 0.1 0.01
+          appearance DEF CBOX_COVER PBRAppearance {
+          }
+          geometry DEF GBOX_COVER Box {
+            size 1 0.05 1
           }
         }
-      ]
-    }
-    Transform {
-      translation 0 0.9 0
-      children [
-        Shape {
-          appearance USE BOX_COLOR
-          geometry Box {
-            size 0.8 0.1 0.01
-          }
-        }
-      ]
-    }
-    Transform {
-      translation 0 0.9 0
-      children [
-        Shape {
-          appearance USE BOX_COLOR
-          geometry Box {
-            size 0.8 0.1 0.01
-          }
-        }
-      ]
-    }
-    Transform {
-      translation 0 0.9 0
-      children [
-        Shape {
-          appearance USE BOX_COLOR
-          geometry Box {
-            size 1 0.1 0.01
-          }
-        }
-      ]
-    }
-    Transform {
-      translation 0 0.9 0
-      children [
-        Shape {
-          appearance USE BOX_COLOR
-          geometry Box {
-            size 1 0.1 0.01
-          }
-        }
-      ]
-    }
-    Transform {
-      translation 0 0.9 0
-      children [
-        Shape {
-          appearance USE BOX_COLOR
-          geometry Box {
-            size 1 0.1 0.01
-          }
+        Transform {
+          translation 0 0.95 0
+          children [
+            Shape {
+              appearance USE CBOX_COVER
+              geometry USE GBOX_COVER
+            }
+          ]
         }
       ]
     }
   ]
+}
+Solid {
+  translation 0 0.1 0.495
+  rotation 0 0 1 0
+  children [
+    Group {
+      children [
+        DEF BOX_FRAME1 Shape {
+          appearance DEF CBOX_FRAME PBRAppearance {
+            baseColor 0.8 0 0
+          }
+          geometry DEF G_BOX_FRAME Box {
+            size 1 0.1 0.01
+          }
+        }
+        Transform {
+          translation 0 0.8 0
+          rotation 0 0 1 0
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry USE G_BOX_FRAME
+            }
+          ]
+        }
+      ]
+    }
+    Group {
+      children [
+        Solid {
+          translation 0.45 0.4 0
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry DEF G_BOX_Frame1 Box {
+                size 0.7 0.1 0.01
+              }
+            }
+            Transform {
+              translation 0 0.9 0
+              children [
+                Shape {
+                  appearance USE CBOX_FRAME
+                  geometry USE G_BOX_Frame1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    Group {
+      children [
+        Solid {
+          translation 0 0.4 0
+          rotation 0 0 1 0.71
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry Box {
+                size 1.2 0.07 0.01
+              }
+            }
+            Transform {
+              rotation 0 0 1 1.7
+              children [
+                Shape {
+                  appearance USE CBOX_FRAME
+                  geometry Box {
+                    size 1.2 0.07 0.01
+                  }
+                }
+              ]
+            }
+          ]
+          name "solid(1)"
+        }
+      ]
+    }
+  ]
+  name "solid(1)"
+}
+Solid {
+  translation 0 0.1 -0.495
+  rotation 0 0 1 0
+  children [
+    Group {
+      children [
+        DEF BOX_FRAME1 Shape {
+          appearance DEF CBOX_FRAME PBRAppearance {
+            baseColor 0.8 0 0
+          }
+          geometry DEF G_BOX_FRAME Box {
+            size 1 0.1 0.01
+          }
+        }
+        Transform {
+          translation 0 0.8 0
+          rotation 0 0 1 0
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry USE G_BOX_FRAME
+            }
+          ]
+        }
+      ]
+    }
+    Group {
+      children [
+        Solid {
+          translation 0.45 0.4 0
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry DEF G_BOX_Frame1 Box {
+                size 0.7 0.1 0.01
+              }
+            }
+            Transform {
+              translation 0 0.9 0
+              children [
+                Shape {
+                  appearance USE CBOX_FRAME
+                  geometry USE G_BOX_Frame1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    Group {
+      children [
+        Solid {
+          translation 0 0.4 0
+          rotation 0 0 1 0.71
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry Box {
+                size 1.2 0.07 0.01
+              }
+            }
+            Transform {
+              rotation 0 0 1 1.7
+              children [
+                Shape {
+                  appearance USE CBOX_FRAME
+                  geometry Box {
+                    size 1.2 0.07 0.01
+                  }
+                }
+              ]
+            }
+          ]
+          name "solid(1)"
+        }
+      ]
+    }
+  ]
+  name "solid(2)"
+}
+Solid {
+  translation 0.495 0.1 0
+  rotation 0 1 0 1.57
+  children [
+    Group {
+      children [
+        DEF BOX_FRAME1 Shape {
+          appearance DEF CBOX_FRAME PBRAppearance {
+            baseColor 0.8 0 0
+          }
+          geometry DEF G_BOX_FRAME Box {
+            size 0.98 0.1 0.01
+          }
+        }
+        Transform {
+          translation 0 0.8 0
+          rotation 0 0 1 0
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry USE G_BOX_FRAME
+            }
+          ]
+        }
+      ]
+    }
+    Group {
+      children [
+        Solid {
+          translation 0.44 0.4 0
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry DEF G_BOX_Frame1 Box {
+                size 0.7 0.1 0.01
+              }
+            }
+            Transform {
+              translation 0 0.88 0
+              children [
+                Shape {
+                  appearance USE CBOX_FRAME
+                  geometry USE G_BOX_Frame1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    Group {
+      children [
+        Solid {
+          translation 0 0.4 0
+          rotation 0 0 1 0.71
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry Box {
+                size 1.2 0.07 0.01
+              }
+            }
+            Transform {
+              rotation 0 0 1 1.7
+              children [
+                Shape {
+                  appearance USE CBOX_FRAME
+                  geometry Box {
+                    size 1.2 0.07 0.01
+                  }
+                }
+              ]
+            }
+          ]
+          name "solid(1)"
+        }
+      ]
+    }
+  ]
+  name "solid(3)"
+}
+Solid {
+  translation -0.495 0.1 0
+  rotation 0 1 0 1.57
+  children [
+    Group {
+      children [
+        DEF BOX_FRAME1 Shape {
+          appearance DEF CBOX_FRAME PBRAppearance {
+            baseColor 0.8 0 0
+          }
+          geometry DEF G_BOX_FRAME Box {
+            size 0.98 0.1 0.01
+          }
+        }
+        Transform {
+          translation 0 0.8 0
+          rotation 0 0 1 0
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry USE G_BOX_FRAME
+            }
+          ]
+        }
+      ]
+    }
+    Group {
+      children [
+        Solid {
+          translation 0.44 0.4 0
+          rotation 0 0 1 1.57
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry DEF G_BOX_Frame1 Box {
+                size 0.7 0.1 0.01
+              }
+            }
+            Transform {
+              translation 0 0.88 0
+              children [
+                Shape {
+                  appearance USE CBOX_FRAME
+                  geometry USE G_BOX_Frame1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    Group {
+      children [
+        Solid {
+          translation 0 0.4 0
+          rotation 0 0 1 0.71
+          children [
+            Shape {
+              appearance USE CBOX_FRAME
+              geometry Box {
+                size 1.2 0.07 0.01
+              }
+            }
+            Transform {
+              rotation 0 0 1 1.7
+              children [
+                Shape {
+                  appearance USE CBOX_FRAME
+                  geometry Box {
+                    size 1.2 0.07 0.01
+                  }
+                }
+              ]
+            }
+          ]
+          name "solid(1)"
+        }
+      ]
+    }
+  ]
+  name "solid(4)"
+}
+Solid {
+  translation 0 1 0
+  name "solid(5)"
 }
